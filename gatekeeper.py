@@ -4,6 +4,8 @@ import logging
 BOT_TOKEN = '<DISCORD BOT TOKEN>'
 SERVER_ID = <SERVER ID>
 ROLE_ID = <ROLE ID>
+SECRET = 'secret phrase here (all lowercase)'
+GREETING = 'Hello! Welcome to the <SERVER NAME> discord server!'
 
 # Set up logging - copied from discord py docs
 logger = logging.getLogger('discord')
@@ -24,14 +26,14 @@ async def on_message(message):
         return
 
     # Secret phrase handler
-    if message.content.lower() == 'secret phrase here (all lowercase)':
+    if message.content.lower() == SECRET:
         role = client.get_guild(SERVER_ID).get_role(ROLE_ID)
         await client.get_guild(SERVER_ID).get_member(message.author.id).add_roles(role)
-        logging.info('Logging secret phrase handler execution...')
+        logging.info('Executed secret phrase handler...')
 
 @client.event
 async def on_member_join(member):
-    await member.send('Hello! Welcome to the <SERVER NAME> discord server!')
+    await member.send(GREETING)
     logging.info('New member joined, sending welcome message...')
 
 client.run(BOT_TOKEN)

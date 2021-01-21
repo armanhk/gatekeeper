@@ -29,12 +29,12 @@ async def on_message(message):
     if message.content.lower() == SECRET:
         role = client.get_guild(SERVER_ID).get_role(ROLE_ID)
         await client.get_guild(SERVER_ID).get_member(message.author.id).add_roles(role)
-        logging.info('Executed secret phrase handler...')
+        logger.info('Executed secret phrase handler...')
 
 @client.event
 async def on_member_join(member):
     await member.send(GREETING)
-    logging.info('New member joined, sending welcome message...')
+    logger.info('New member joined, sending welcome message...')
 
 client.run(BOT_TOKEN)
 

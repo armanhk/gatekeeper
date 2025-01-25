@@ -20,6 +20,4 @@ In order to use this script, you'll need to change the following items where the
 You'll also need to replace the contents of `"secret phrase here (all lowercase)"` and any logging statements as desired.
 
 ## What Does it Do?
-This script simply creates a bot that sends a private welcome message to members that join the target server. The bot will also add the indicated role to the member upon receiving a message with the contents used to replace `"secret phrase here (all lowercase)"` (note the all lowercase, you can change the code if you want case sensitivity). That's pretty much it...
-
-Get creative with what access is granted by the role that the member is being given upon sending the secret phrase. Enjoy!
+This script simply creates a bot that sends a private welcome message to users when they join target server. The bot will assign a given role to new members if they reply to the welcome message with a secret phrase.
